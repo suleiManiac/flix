@@ -3,7 +3,7 @@
         <h3> {{ pageTitle }} </h3>
         <hr>
       <div class="row">
-        <movie-thumbnail (favMovie)="handleMovieFav($movie)" [movie]="movie"></movie-thumbnail>
+        <movie-thumbnail (favMovie)="handleMovieFav($event)" [movie]="movie"></movie-thumbnail>
       </div>
       </div>
     </div>

@@ -27,6 +27,6 @@ export class MovieThumbnailComponent {
     // tslint:disable-next-line: no-trailing-whitespace
     
     handleClick() {
-        this.favMovie.emit('Boo');
+        this.favMovie.emit(this.movie);
     }
 }
