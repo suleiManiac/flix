@@ -7,20 +7,23 @@ import { AppComponent } from './app.component';
 import { MovieListComponent } from './movies/movie-list.component';
 import { MovieThumbnailComponent } from './movies/movie-thumbnail.component';
 import { NavbarComponent } from './layout/navbar/navbar.component';
+import { MovieService } from './movies/shared/movie.service';
+import { MovieDetailComponent } from './movies/movie-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MovieListComponent,
     MovieThumbnailComponent,
-    NavbarComponent
+    NavbarComponent,
+    MovieDetailComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [MovieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,98 +1,22 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { MovieService } from './shared/movie.service';
 
 @Component({
     selector: 'app-movies',
     templateUrl: './movie-list.component.html'
 })
-export class MovieListComponent {
+export class MovieListComponent implements OnInit {
     // tslint:disable-next-line: no-inferrable-types
     pageTitle: string = 'Movie List';
-    movies = [
-        {
-            id: 1,
-            title: 'A Million Ways To Die in the West',
-            cast: {
-                first: 'Seth McFarlane',
-                second: 'Someone Someone',
-                third: 'Someone Something'
-            },
-            date: '12/12/12',
-            rating: 5,
-            imageUrl: '../assets/logo.png'
-        },
-        {
-            id: 1,
-            title: 'A Million Ways To Die in the West',
-            cast: {
-                first: 'Seth McFarlane',
-                second: 'Someone Someone',
-                third: 'Someone Something'
-            },
-            date: '12/12/12',
-            rating: 5,
-            imageUrl: '../assets/logo.png'
-        },
-        {
-            id: 1,
-            title: 'A Million Ways To Die in the West',
-            cast: {
-                first: 'Seth McFarlane',
-                second: 'Someone Someone',
-                third: 'Someone Something'
-            },
-            date: '12/12/12',
-            rating: 5,
-            imageUrl: '../assets/logo.png'
-        },
-        {
-            id: 1,
-            title: 'A Million Ways To Die in the West',
-            cast: {
-                first: 'Seth McFarlane',
-                second: 'Someone Someone',
-                third: 'Someone Something'
-            },
-            date: '12/12/12',
-            rating: 5,
-            imageUrl: '../assets/logo.png'
-        },
-        {
-            id: 1,
-            title: 'A Million Ways To Die in the West',
-            cast: {
-                first: 'Seth McFarlane',
-                second: 'Someone Someone',
-                third: 'Someone Something'
-            },
-            date: '12/12/12',
-            rating: 5,
-            imageUrl: '../assets/logo.png'
-        },
-        {
-            id: 1,
-            title: 'A Million Ways To Die in the West',
-            cast: {
-                first: 'Seth McFarlane',
-                second: 'Someone Someone',
-                third: 'Someone Something'
-            },
-            date: '12/12/12',
-            rating: 5,
-            imageUrl: '../assets/logo.png'
-        },
-        {
-            id: 1,
-            title: 'A Million Ways To Die in the West',
-            cast: {
-                first: 'Seth McFarlane',
-                second: 'Someone Someone',
-                third: 'Someone Something'
-            },
-            date: '12/12/12',
-            rating: 5,
-            imageUrl: '../assets/logo.png'
-        }
-    ];
+    movies: any[];
+    constructor(private movieService: MovieService) {
+
+    }
+
+    ngOnInit() {
+        this.movies = this.movieService.getMovies();
+    }
+
     handleMovieFav(data) {
         console.log(data);
     }

@@ -1,0 +1,21 @@
+<div>
+    <img [src]="movie?.imageUrl" [alt]="movie?.name">
+
+  <div class="row">
+    <div class="col-md-11">
+      <h2>{{movie?.name}} </h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <div><strong>Date:</strong> {{movie?.date}}</div>
+      <div><strong>Rating:</strong> {{movie?.rating}}</div>
+    </div>
+    <div class="col-md-6">
+        <strong>Cast:</strong><br />
+        {{movie?.cast?.first}}<br />
+        {{movie?.cast?.second}}, {{movie?.cast?.third}}
+    </div>
+  </div>
+</div>
