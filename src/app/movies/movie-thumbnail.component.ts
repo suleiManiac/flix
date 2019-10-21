@@ -1,11 +1,12 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
+    // tslint:disable-next-line: component-selector
     selector: 'movie-thumbnail',
     template: `
-    <div class="container well hoverwell movie-thumbnail">
+    <div class="container well thumbnail hoverwell movie-thumbnail">
     <div class="card mb-4 shadow-sm">
-      <img class="bd-placeholder-img card-img-top thumbnail" width="100%" height="225" [src]="movie.imageUrl">
+      <img class="bd-placeholder-img card-img-top thumbnail" width="100%" height="225" [src]="movie.imageUrl" [routerLink]="['/movies', movie.id]">
       <div class="card-body">
         <p class="card-text"> Title: {{ movie.title}} </p>
         <p class="card-text"> Release Date: {{ movie.date }} </p>
@@ -13,7 +14,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
         <div class="d-flex justify-content-between align-items-center">
           <div class="btn-group">
             <button type="button" class="btn btn-sm btn-outline-primary" (click)="handleClick()">Favorite</button>
-            <button type="button" class="btn btn-sm btn-outline-primary">Read More</button>
+            <button type="button" class="btn btn-sm btn-outline-primary" [routerLink]="['/movies', movie.id]">Read More</button>
           </div>
         </div>
       </div>

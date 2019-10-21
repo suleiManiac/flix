@@ -19,7 +19,7 @@ export class MovieService {
             id: 2,
             title: 'A Million Ways To Die in the West',
             cast: {
-                first: 'Seth McFarlane',
+                first: 'Seth McFarlaness',
                 second: 'Someone Someone',
                 third: 'Someone Something'
             },
