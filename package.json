@@ -7,7 +7,9 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "generate": "node ./server/generate.js > ./server/database.json",
+    "server": "json-server ./server/database.json"
   },
   "private": true,
   "dependencies": {
@@ -20,8 +22,10 @@
     "@angular/platform-browser-dynamic": "~8.2.3",
     "@angular/router": "~8.2.3",
     "bootstrap": "^4.3.1",
+    "faker": "^4.1.0",
     "font-awesome": "^4.7.0",
     "jquery": "^3.4.1",
+    "json-server": "^0.15.1",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"

@@ -1,11 +1,11 @@
 <div class="album py-5 bg-light">
-    <div class="container">
-        <h3> {{ pageTitle }} </h3>
-        <hr>
+  <div class="container">
+      <h3> {{ pageTitle }} </h3>
+      <hr>
       <div class="row align-items-center">
         <div class="col-md-5" *ngFor="let movie of movies">
-            <movie-thumbnail (favMovie)="handleMovieFav($event)" [movie]="movie"></movie-thumbnail>
+          <movie-thumbnail (favMovie)="handleMovieFav($event)" [movie]="movie"></movie-thumbnail>
         </div>
       </div>
-      </div>
-    </div>
+  </div>
+</div>

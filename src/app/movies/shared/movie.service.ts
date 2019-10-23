@@ -1,16 +1,22 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { IMovie } from './movie.model';
+import { Subject, Observable } from 'rxjs';
 
-@Injectable()
+@Injectable({
+    providedIn: 'root'
+})
 export class MovieService {
-    movies: any[] = [
+    // private REST_API_SERVER = 'http://localhost:3000';
+    movies: IMovie[] = [
         {
             id: 1,
             title: 'A Million Ways To Die in the West',
-            cast: {
-                first: 'Seth McFarlane',
-                second: 'Someone Someone',
-                third: 'Someone Something'
-            },
+            cast: [
+                'Seth McFarlane',
+                'Someone Someone',
+                'Someone Something'
+            ],
             date: '12/12/12',
             rating: 5,
             imageUrl: '../assets/logo.png'
@@ -18,11 +24,11 @@ export class MovieService {
         {
             id: 2,
             title: 'A Million Ways To Die in the West',
-            cast: {
-                first: 'Seth McFarlaness',
-                second: 'Someone Someone',
-                third: 'Someone Something'
-            },
+            cast: [
+                'Seth McFarlane',
+                'Someone Someone',
+                'Someone Something'
+            ],
             date: '12/12/12',
             rating: 5,
             imageUrl: '../assets/logo.png'
@@ -30,11 +36,11 @@ export class MovieService {
         {
             id: 3,
             title: 'A Million Ways To Die in the West',
-            cast: {
-                first: 'Seth McFarlane',
-                second: 'Someone Someone',
-                third: 'Someone Something'
-            },
+            cast: [
+                'Seth McFarlane',
+                'Someone Someone',
+                'Someone Something'
+            ],
             date: '12/12/12',
             rating: 5,
             imageUrl: '../assets/logo.png'
@@ -42,11 +48,11 @@ export class MovieService {
         {
             id: 4,
             title: 'A Million Ways To Die in the West',
-            cast: {
-                first: 'Seth McFarlane',
-                second: 'Someone Someone',
-                third: 'Someone Something'
-            },
+            cast: [
+                'Seth McFarlane',
+                'Someone Someone',
+                'Someone Something'
+            ],
             date: '12/12/12',
             rating: 5,
             imageUrl: '../assets/logo.png'
@@ -54,11 +60,11 @@ export class MovieService {
         {
             id: 5,
             title: 'A Million Ways To Die in the West',
-            cast: {
-                first: 'Seth McFarlane',
-                second: 'Someone Someone',
-                third: 'Someone Something'
-            },
+            cast: [
+                'Seth McFarlane',
+                'Someone Someone',
+                'Someone Something'
+            ],
             date: '12/12/12',
             rating: 5,
             imageUrl: '../assets/logo.png'
@@ -66,11 +72,11 @@ export class MovieService {
         {
             id: 6,
             title: 'A Million Ways To Die in the West',
-            cast: {
-                first: 'Seth McFarlane',
-                second: 'Someone Someone',
-                third: 'Someone Something'
-            },
+            cast: [
+                'Seth McFarlane',
+                'Someone Someone',
+                'Someone Something'
+            ],
             date: '12/12/12',
             rating: 5,
             imageUrl: '../assets/logo.png'
@@ -78,23 +84,32 @@ export class MovieService {
         {
             id: 7,
             title: 'A Million Ways To Die in the West',
-            cast: {
-                first: 'Seth McFarlane',
-                second: 'Someone Someone',
-                third: 'Someone Something'
-            },
+            cast: [
+                'Seth McFarlane',
+                'Someone Someone',
+                'Someone Something'
+            ],
             date: '12/12/12',
             rating: 5,
             imageUrl: '../assets/logo.png'
         }
     ];
+    /* constructor(private httpClient: HttpClient) {}
 
-    getMovies() {
+    public sendGetRequest() {
+       return this.httpClient.get(this.REST_API_SERVER);
+    }
+ */
+    getMovies(): Observable<IMovie[]> {
         // tslint:disable-next-line: no-use-before-declare
-        return this.movies;
+        // tslint:disable-next-line: prefer-const
+        let subject = new Subject<IMovie[]>();
+        setTimeout(() => { subject.next(this.movies); subject.complete(); },
+        100);
+        return subject;
     }
 
-    getMovie(id: number) {
+    getMovie(id: number): IMovie {
         return this.movies.find(movie => movie.id === id);
     }
 }

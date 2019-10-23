@@ -8,7 +8,8 @@ import { MovieDetailComponent } from './movies/movie-detail.component';
 const routes: Routes = [
   { path: 'movies', component: MovieListComponent },
   { path: 'movies/:id', component: MovieDetailComponent },
-  { path: '', redirectTo: 'movies', pathMatch: 'full' }
+  { path: '', redirectTo: 'movies', pathMatch: 'full' },
+  { path: 'user', loadChildren: './user/user.module#UserModule' }
 ];
 
 @NgModule({

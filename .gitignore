@@ -7,6 +7,9 @@
 # Only exists if Bazel was run
 /bazel-out
 
+#installed json-server and generated a database.json using the faker.js api and its not used 
+/server
+
 # dependencies
 /node_modules
 
