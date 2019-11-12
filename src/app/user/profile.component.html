@@ -3,19 +3,19 @@
     <hr>
     <div class = "col-md-4">
         <br><br>
-        <form [formGroup]="profileForm" autocomplete="off" novalidate>
+        <form [formGroup]="profileForm" autocomplete="off" (ngSubmit)="saveProfile(profileForm.value)" novalidate>
             <div class="form-group">
                 <label for="firstname">First Name </label>
-                <input type="text" formControlName="firstname" name="firstname" id="firstname" class="form-control">
+                <input type="text" formControlName="firstName" name="firstName" id="firstName" class="form-control">
             </div>
 
             <div class="form-group">
                 <label for="lastname">Last Name </label>
-                <input type="text" formControlName="lastname" name="lastname" id="lastname" class="form-control">
+                <input type="text" formControlName="lastName" name="lastName" id="lastName" class="form-control">
             </div>
             
             <button type="submit" class="btn btn-primary" id="saveBtn">Save</button>&nbsp;
-            <button type="button" class="btn btn-secondary">Cancel</button>
+            <button type="button" class="btn btn-secondary" (click)="cancel()">Cancel</button>
         </form>
     </div>
 </div>
