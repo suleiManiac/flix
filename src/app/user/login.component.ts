@@ -16,6 +16,7 @@ export class LoginComponent {
     constructor(private authService: AuthService, private router: Router) {}
 
     login(formValues) {
+        // console.log(formValues.username);
         this.authService.loginUser(formValues.username, formValues.password);
         this.router.navigate(['movies']);
     }

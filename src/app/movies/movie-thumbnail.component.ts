@@ -4,9 +4,10 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
     // tslint:disable-next-line: component-selector
     selector: 'movie-thumbnail',
     template: `
-    <div class="container well thumbnail hoverwell movie-thumbnail">
+    <div class="container movie-thumbnail">
     <div class="card mb-4 shadow-sm">
-      <img class="bd-placeholder-img card-img-top thumbnail" width="100%" height="225" [src]="movie.imageUrl" [routerLink]="['/movies', movie.id]">
+      <a  [routerLink]="['/movies', movie.id]"><img class="bd-placeholder-img card-img-top thumbnail" width="100%" height="225"
+       [src]="movie.imageUrl"></a>
       <div class="card-body">
         <p class="card-text"> Title: {{ movie.title}} </p>
         <p class="card-text"> Release Date: {{ movie.date }} </p>
