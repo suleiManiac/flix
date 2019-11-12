@@ -8,6 +8,10 @@ import { AuthService } from './auth.service';
         .container {
             padding-top: 100px;
         }
+
+        /**em {
+            font-size: 0.7rem !important;
+        }**/
     `]
 })
 export class LoginComponent {
