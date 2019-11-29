@@ -2,16 +2,18 @@
     <h1>{{ pageTitle }}</h1>
     <hr>
     <div class = "col-md-4">
-        <br><br>
+        <br>
         <form [formGroup]="profileForm" autocomplete="off" (ngSubmit)="saveProfile(profileForm.value)" novalidate>
-            <div class="form-group">
+        <div class="form-group" [ngClass]="{'error': !validateFirstName() }">
                 <label for="firstname">First Name </label>
-                <input type="text" formControlName="firstName" name="firstName" id="firstName" class="form-control">
+                <em *ngIf="!validateFirstName()" class="pull-right text-danger"><small>Required</small></em>
+                <input type="text" formControlName="firstName" name="firstName" id="firstName" class="form-control" placeholder="First Name...">
             </div>
 
-            <div class="form-group">
+            <div class="form-group" [ngClass]="{'error': !validateLastName() }">
                 <label for="lastname">Last Name </label>
-                <input type="text" formControlName="lastName" name="lastName" id="lastName" class="form-control">
+                <em *ngIf="!validateLastName()" class="pull-right text-danger"><small>Required</small></em>
+                <input type="text" formControlName="lastName" name="lastName" id="lastName" class="form-control" placeholder="Last Name...">
             </div>
             
             <button type="submit" class="btn btn-primary" id="saveBtn">Save</button>&nbsp;
